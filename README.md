@@ -1,5 +1,5 @@
 
-# Find Security Bugs: Demo projects
+# Find Security Bugs: Demo projects 
 
 The project presented in this repository can be used to see configuration recipes with various build technologies (Maven, Gradle, SBT). The projects can also be used to test FindBugs with FSB.
 
