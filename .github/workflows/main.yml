@@ -23,7 +23,7 @@ jobs:
         - name: Checkmarx CxFlow Action
           uses: docker://jprannoyn474/cxflow-gitlab:scaTest
           with:
-            entrypoint: ['']
+            entrypoint: ''
             filename: config.json
             INPUT_PROJECT: PROJECT_NAME
             INPUT_TEAM: TEAM
