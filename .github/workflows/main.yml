@@ -30,8 +30,8 @@ jobs:
             sca_username: SCA_USERNAME
             sca_password: SCA_PASSWORD
             sca_tenant: SCA_TENANT
-        run:
-          - java -jar /app/cx-flow.jar --spring.config.location=./application.yml
+        - run:
+            java -jar /app/cx-flow.jar --spring.config.location=./application.yml
 
 
       #          - name: Checkmarx CxFlow Action
