@@ -24,12 +24,15 @@ jobs:
           uses: docker://jprannoyn474/cxflow-gitlab:scaTest
           with:
             filename: config.json
-            project: PROJECT_NAME
-            team: TEAM
-            checkmarx_url: CHECKMARX_URL
-            sca_username: SCA_USERNAME
-            sca_password: SCA_PASSWORD
-            sca_tenant: SCA_TENANT
+            INPUT_PROJECT: PROJECT_NAME
+            INPUT_TEAM: TEAM
+            INPUT_CHECKMARX_URL: CHECKMARX_URL
+            INPUT_SCA_USERNAME: SCA_USERNAME
+            INPUT_SCA_PASSWORD: SCA_PASSWORD
+            INPUT_SCA_TENANT: SCA_TENANT
+            script:
+               java -jar /app/cx-flow.jar --spring.config.location=./application.yml
+
 
 
 
