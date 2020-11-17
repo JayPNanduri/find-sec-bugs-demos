@@ -22,16 +22,16 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - run:
             java -jar /app/cx-flow.jar --spring.config.location=./application.yml
-        - name: Checkmarx CxFlow Action
-          uses: docker://jprannoyn474/cxflow-gitlab:scaTest
-          with:
-            filename: config.json
-            project: PROJECT_NAME
-            team: TEAM
-            checkmarx_url: CHECKMARX_URL
-            sca_username: SCA_USERNAME
-            sca_password: SCA_PASSWORD
-            sca_tenant: SCA_TENANT
+        name: Checkmarx CxFlow Action
+        uses: docker://jprannoyn474/cxflow-gitlab:scaTest
+        with:
+          filename: config.json
+          project: PROJECT_NAME
+          team: TEAM
+          checkmarx_url: CHECKMARX_URL
+          sca_username: SCA_USERNAME
+          sca_password: SCA_PASSWORD
+          sca_tenant: SCA_TENANT
 
 
 
