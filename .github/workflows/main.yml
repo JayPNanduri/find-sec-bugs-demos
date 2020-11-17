@@ -38,6 +38,7 @@ jobs:
               --cx-project=${project}
               --app=${project}
               --f=.
+          shell: cmd
 
 
 
