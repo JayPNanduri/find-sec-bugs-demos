@@ -20,8 +20,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: docker://jprannoyn474/cxflow-gitlab:scaTest
         - name: Checkmarx CxFlow Action
+          uses: docker://jprannoyn474/cxflow-gitlab:scaTest
           with:
             filename: config.json
             project: PROJECT_NAME
