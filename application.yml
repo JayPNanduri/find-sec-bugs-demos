@@ -1,0 +1,100 @@
+
+server:
+  port: 8080
+
+logging:
+  file:
+    name: cx-flow.log
+  level:
+    com:
+      checkmarx:
+        flow:
+          cmd: TRACE
+          service: TRACE
+          controller: TRACE
+    org:
+      apache:
+        http:
+          wire: TRACE
+      springframework:
+        web:
+          client:
+            RestTemplate: TRACE
+
+cxflow:
+  bug-tracker: GitHub
+  bug-tracker-impl:
+    - CxXml
+    - GitHub
+    - Azure
+    - Email
+  branch-script :
+  branches:
+    - JayFlowTest
+  filter-severity:
+  filter-category:
+  filter-cwe:
+  filter-status:
+  mitre-url: https://cwe.mitre.org/data/definitions/%s.html
+  wiki-url: https://custodela.atlassian.net/wiki/spaces/AS/pages/79462432/Remediation+Guidance
+  codebash-url: https://checkmarx-demo.codebashing.com/courses/
+  scan-resubmit: false
+  auto-profile: false
+  always-profile: false
+  profiling-depth: 2
+  profile-config: CxProfile.json
+  contact : Admin@cxflow.com
+  enabled-vulnerability-scanners:
+    #    - sca
+    - sast
+  mail:
+    host: 127.0.0.1
+    port: 25
+    username: xxx
+    password: xxx
+    cc:
+    template: #D:\EmailTemplate\template-demo-differentlLoc.html  #D:\templateForBugTracker\mailTemplate.html    # templates\mailTemplate.html
+    notification: false
+    allow-empty-mail: false
+
+checkmarx:
+  version: 8.9
+  username: jay.nanduri@checkmarx.com
+  password: aqNGC2?C7UKdfK_D
+  client-id: resource_owner_client
+  client-secret: 014DF517-39D1-4453-B7B3-9930C563627C
+  scope: sast_rest_api
+  base-url: https://ast.dev.checkmarx-ts.com
+  multi-tenant: false
+  scan-preset: Checkmarx Default
+  configuration: Default Configuration
+  team: \CxServer\SP\Checkmarx\JayN
+  url: ${checkmarx.base-url}/cxrestapi
+  #WSDL Config
+  portal-url: ${checkmarx.base-url}/cxwebinterface/Portal/CxWebService.asmx
+  sdk-url: ${checkmarx.base-url}/cxwebinterface/SDK/CxSDKWebService.asmx
+  portal-wsdl: ${checkmarx.base-url}/Portal/CxWebService.asmx?wsdl
+  sdk-wsdl: ${checkmarx.base-url}/SDK/CxSDKWebService.asmx?wsdl
+  preserve-xml: true
+  incremental: false
+
+cx-xml:
+  file-name-format: "[NAMESPACE]-[REPO]-[BRANCH]-[TIME].xml"
+  data-folder: "C:\\tmp"
+
+github:
+  webhook-token: 12345
+  token: 147c425e19d9fe20456dbb078d91837d670f74a6
+  url: https://github.com
+  api-url: https://api.github.com/repos/
+  false-positive-label: false-positive
+  block-merge: true
+  error-merge : true
+  config-as-code :
+sca:
+  appUrl: https://sca.scacheckmarx.com
+  apiUrl: https://api.scacheckmarx.com
+  accessControlUrl: https://platform.checkmarx.net
+  tenant: SCA-Champions
+  username: admin
+  password: Cxflow12!
