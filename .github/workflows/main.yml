@@ -1,72 +1,88 @@
-# This is a basic workflow to help you get started with Actions
-
 name: CI
-
-# Controls when the action will run. Triggers the workflow on push or pull request
-# events but only for the master branch
 on:
   push:
     branches: [ master ]
-  pull_request:
-    branches: [ master ]
+runs:
+  using: 'docker'
+  image: 'docker://jprannoyn474/cxflow-gitlab:scaTest'
+  args:
+    - cat ../../application.yml > application.yml
+    - java -jar /app/cx-flow.jar --spring.config.location=./application.yml
+      --scan
+      --cx-team= TEAM
+      --cx-project= PROJECT_NAME
+      --app= PROJECT_NAME
+      --f=.
 
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
-jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
-    runs-on: ubuntu-latest
-
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-        - name: Checkmarx CxFlow Action
-          uses: docker://jprannoyn474/cxflow-gitlab:scaTest
-          with:
-#            entrypoint: ''
-#            filename: config.json
-#            INPUT_PROJECT: PROJECT_NAME
-#            INPUT_TEAM: TEAM
-#            INPUT_CHECKMARX_URL: CHECKMARX_URL
-#            INPUT_SCA_USERNAME: SCA_USERNAME
-#            INPUT_SCA_PASSWORD: SCA_PASSWORD
-#            INPUT_SCA_TENANT: SCA_TENANT
-            script: |
-                - cat ../../application.yml > application.yml
-                - java -jar /app/cx-flow.jar --spring.config.location=./application.yml
-                  --scan
-                  --cx-team= TEAM
-                  --cx-project= PROJECT_NAME
-                  --app= PROJECT_NAME
-                  --f=.
-
-
-
-
-      #          - name: Checkmarx CxFlow Action
-#            uses: checkmarx-ts/checkmarx-cxflow-github-action@1.0-cxgo
-#            with:
-#              project: GithubActionTest
-#              team: '\Demo\CxFlow\Custodela'
-#              checkmarx_client_secret: ${{ secrets.CXGO_TOKEN }}
-    #  - uses: actions/checkout@v2
-      #    - name: Checkmarx CxFlow Action
-      #      uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.0
-      #      with:
-      #        project: GithubActionTest
-      #        team: '\CxServer\SP\Checkmarx'
-      #        checkmarx_url: ${{ secrets.CHECKMARX_URL }}
-      #        checkmarx_username: ${{ secrets.CHECKMARX_USERNAME }}
-      #        checkmarx_password: ${{ secrets.CHECKMARX_PASSWORD }}
-      #        checkmarx_client_secret: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
-      #    - name: Init CodeQL
-      #      uses: github/codeql-action/init@v1
-      #    - name: Expose report
-      #      uses: actions/upload-artifact@v2
-      #      with:
-      #        name: SARIF results
-      #        path: cx.sarif
-#      - name: Upload SARIF file
-#        uses: github/codeql-action/upload-sarif@v1
-#        with:
-#          sarif_file: cx.sarif
+## This is a basic workflow to help you get started with Actions
+#
+#name: CI
+#
+## Controls when the action will run. Triggers the workflow on push or pull request
+## events but only for the master branch
+#on:
+#  push:
+#    branches: [ master ]
+#  pull_request:
+#    branches: [ master ]
+#
+## A workflow run is made up of one or more jobs that can run sequentially or in parallel
+#jobs:
+#  # This workflow contains a single job called "build"
+#  build:
+#    # The type of runner that the job will run on
+#    runs-on: ubuntu-latest
+#
+#    # Steps represent a sequence of tasks that will be executed as part of the job
+#    steps:
+#      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+#        - name: Checkmarx CxFlow Action
+#          uses: docker://jprannoyn474/cxflow-gitlab:scaTest
+#          with:
+##            entrypoint: ''
+##            filename: config.json
+##            INPUT_PROJECT: PROJECT_NAME
+##            INPUT_TEAM: TEAM
+##            INPUT_CHECKMARX_URL: CHECKMARX_URL
+##            INPUT_SCA_USERNAME: SCA_USERNAME
+##            INPUT_SCA_PASSWORD: SCA_PASSWORD
+##            INPUT_SCA_TENANT: SCA_TENANT
+#            script: |
+#                - cat ../../application.yml > application.yml
+#                - java -jar /app/cx-flow.jar --spring.config.location=./application.yml
+#                  --scan
+#                  --cx-team= TEAM
+#                  --cx-project= PROJECT_NAME
+#                  --app= PROJECT_NAME
+#                  --f=.
+#
+#
+#
+#
+#      #          - name: Checkmarx CxFlow Action
+##            uses: checkmarx-ts/checkmarx-cxflow-github-action@1.0-cxgo
+##            with:
+##              project: GithubActionTest
+##              team: '\Demo\CxFlow\Custodela'
+##              checkmarx_client_secret: ${{ secrets.CXGO_TOKEN }}
+#    #  - uses: actions/checkout@v2
+#      #    - name: Checkmarx CxFlow Action
+#      #      uses: checkmarx-ts/checkmarx-cxflow-github-action@v1.0
+#      #      with:
+#      #        project: GithubActionTest
+#      #        team: '\CxServer\SP\Checkmarx'
+#      #        checkmarx_url: ${{ secrets.CHECKMARX_URL }}
+#      #        checkmarx_username: ${{ secrets.CHECKMARX_USERNAME }}
+#      #        checkmarx_password: ${{ secrets.CHECKMARX_PASSWORD }}
+#      #        checkmarx_client_secret: ${{ secrets.CHECKMARX_CLIENT_SECRET }}
+#      #    - name: Init CodeQL
+#      #      uses: github/codeql-action/init@v1
+#      #    - name: Expose report
+#      #      uses: actions/upload-artifact@v2
+#      #      with:
+#      #        name: SARIF results
+#      #        path: cx.sarif
+##      - name: Upload SARIF file
+##        uses: github/codeql-action/upload-sarif@v1
+##        with:
+##          sarif_file: cx.sarif
