@@ -21,24 +21,24 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-        - name: Checkmarx CxFlow Action
-          uses: checkmarx-ts/checkmarx-cxflow-github-action@1.0-cxgo
-          with:
-            filename: config.json
-            INPUT_PROJECT: PROJECT_NAME
-            INPUT_TEAM: TEAM
-            INPUT_CHECKMARX_URL: CHECKMARX_URL
-            INPUT_SCA_USERNAME: SCA_USERNAME
-            INPUT_SCA_PASSWORD: SCA_PASSWORD
-            INPUT_SCA_TENANT: SCA_TENANT
-            script:
-                cat ../../application.yml > application.yml
-                java -jar /app/cx-flow.jar --spring.config.location=./application.yml
-                --scan
-                --cx-team= TEAM
-                --cx-project= PROJECT_NAME
-                --app= PROJECT_NAME
-                --f=.
+      - name: Checkmarx CxFlow Action
+        uses: checkmarx-ts/checkmarx-cxflow-github-action@1.0-cxgo
+        with:
+          filename: config.json
+          INPUT_PROJECT: PROJECT_NAME
+          INPUT_TEAM: TEAM
+          INPUT_CHECKMARX_URL: CHECKMARX_URL
+          INPUT_SCA_USERNAME: SCA_USERNAME
+          INPUT_SCA_PASSWORD: SCA_PASSWORD
+          INPUT_SCA_TENANT: SCA_TENANT
+          script:
+            cat ../../application.yml > application.yml
+            java -jar /app/cx-flow.jar --spring.config.location=./application.yml
+            --scan
+            --cx-team= TEAM
+            --cx-project= PROJECT_NAME
+            --app= PROJECT_NAME
+            --f=.
 
 
 
