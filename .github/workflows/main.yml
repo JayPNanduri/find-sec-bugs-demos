@@ -33,7 +33,7 @@ jobs:
 #            INPUT_SCA_TENANT: SCA_TENANT
             script:
                 - cat ../../application.yml > application.yml
-                - java -jar /app/cx-flow.jar --spring.config.location=./application.yml
+                 - java -jar /app/cx-flow.jar --spring.config.location=./application.yml
                  --scan
                  --cx-team= TEAM
                  --cx-project= PROJECT_NAME
