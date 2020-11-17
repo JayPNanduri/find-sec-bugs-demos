@@ -1,0 +1,42 @@
+cx-flow:
+  bug-tracker: GitHub
+  bug-tracker-impl:
+    - GitHub
+  filter-severity:
+    - High
+  mitre-url: https://cwe.mitre.org/data/definitions/%s.html
+  break-build: false
+  enabled-vulnerability-scanners:
+    - sca
+checkmarx:
+  username: XXXXX
+  password: XXXXX
+  client-secret: 014DF517-39D1-4453-B7B3-9930C563627C
+  base-url: https://ast.dev.checkmarx-ts.com
+  url: https://ast.dev.checkmarx-ts.com/cxrestapi
+  portal-url: https://ast.dev.checkmarx-ts.com/cxwebinterface/Portal/CxWebService.asmx
+  multi-tenant: true
+  incremental: true
+  scan-preset: Checkmarx Default
+  configuration: Default Configuration
+  team: \CxServer\SP\Checkmarx\JayN
+  scan-timeout: 120
+
+sca:
+  appUrl: https://sca.scacheckmarx.com
+  apiUrl: https://api.scacheckmarx.com
+  accessControlUrl: https://platform.checkmarx.net
+  tenant: XXXXX
+  username: XXXXX
+  password: XXXXX
+
+github:
+  webhook-token: 12345
+  token: 147c425e19d9fe20456dbb078d91837d670f74a6
+  url: https://github.com
+  api-url: https://api.github.com/repos/
+  false-positive-label: false-positive
+  block-merge: true
+  error-merge : true
+  config-as-code :
+
