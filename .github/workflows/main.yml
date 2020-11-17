@@ -20,10 +20,10 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: /.github/workflows/config.json
         - name: Checkmarx CxFlow Action
           uses: jprannoyn474/cxflow-gitlab:scaTest
           with:
+            filename: config.json
             project: ${{config.PROJECT_NAME}}
             team: ${{config.TEAM}}
             checkmarx_url: ${{config.CHECKMARX_URL}}
