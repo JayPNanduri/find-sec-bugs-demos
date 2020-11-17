@@ -24,12 +24,12 @@ jobs:
           uses: jprannoyn474/cxflow-gitlab:scaTest
           with:
             filename: config.json
-            project: ${{config.PROJECT_NAME}}
-            team: ${{config.TEAM}}
-            checkmarx_url: ${{config.CHECKMARX_URL}}
-            sca_username: ${{config.SCA_USERNAME}}
-            sca_password: ${{config.SCA_PASSWORD}}
-            sca_tenant: ${{config.SCA_TENANT}}
+            project: ${{PROJECT_NAME}}
+            team: ${{TEAM}}
+            checkmarx_url: ${{CHECKMARX_URL}}
+            sca_username: ${{SCA_USERNAME}}
+            sca_password: ${{SCA_PASSWORD}}
+            sca_tenant: ${{SCA_TENANT}}
 
 
 #          - name: Checkmarx CxFlow Action
