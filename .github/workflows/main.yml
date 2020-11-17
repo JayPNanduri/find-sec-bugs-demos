@@ -21,7 +21,7 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
         - name: Checkmarx CxFlow Action
-          uses: jprannoyn474/cxflow-gitlab:scaTest
+          uses: docker://jprannoyn474/cxflow-gitlab:scaTest
           with:
             filename: config.json
             project: PROJECT_NAME
