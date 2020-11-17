@@ -30,15 +30,6 @@ jobs:
             sca_username: SCA_USERNAME
             sca_password: SCA_PASSWORD
             sca_tenant: SCA_TENANT
-          run:
-            - cat cx_config.yml > application.yml
-              - java -jar /app/cx-flow.jar --spring.config.location=./application.yml
-              --project
-              --cx-team=${team}
-              --cx-project=${project}
-              --app=${project}
-              --f=.
-          shell: cmd
 
 
 
