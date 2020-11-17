@@ -20,8 +20,8 @@ jobs:
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: docker.pkg.github.com/checkmarx-ts/checkmarx-github-action/checkmarx-github-action:latest
         - name: Checkmarx CxFlow Action
+          uses: docker.pkg.github.com/checkmarx-ts/checkmarx-github-action/checkmarx-github-action:latest
           with:
             filename: config.json
             INPUT_PROJECT: PROJECT_NAME
@@ -31,13 +31,13 @@ jobs:
             INPUT_SCA_PASSWORD: SCA_PASSWORD
             INPUT_SCA_TENANT: SCA_TENANT
             script:
-              cat ../../application.yml > application.yml
-              java -jar /app/cx-flow.jar --spring.config.location=./application.yml
-              --scan
-              --cx-team= TEAM
-              --cx-project= PROJECT_NAME
-              --app= PROJECT_NAME
-              --f=.
+                cat ../../application.yml > application.yml
+                java -jar /app/cx-flow.jar --spring.config.location=./application.yml
+                --scan
+                --cx-team= TEAM
+                --cx-project= PROJECT_NAME
+                --app= PROJECT_NAME
+                --f=.
 
 
 
