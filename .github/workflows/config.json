@@ -6,6 +6,7 @@
   CHECKMARX_PASSWORD: "aqNGC2?C7UKdfK_D",
   SCA_PASSWORD: "Cxflow@123",
   SCA_TENANT: "SCA-Champions",
-  SCA_USERNAME: "cxflow"
+  SCA_USERNAME: "cxflow",
+  CX_FLOW_EXE: "java -jar /app/cx-flow.jar --spring.config.location=./application.yml"
 
 }
