@@ -2,17 +2,18 @@ name: CI
 on:
   push:
     branches: [ master ]
-runs:
-  using: 'docker'
-  image: 'docker://jprannoyn474/cxflow-gitlab:scaTest'
-  args:
-    - cat ../../application.yml > application.yml
-    - java -jar /app/cx-flow.jar --spring.config.location=./application.yml
-      --scan
-      --cx-team= TEAM
-      --cx-project= PROJECT_NAME
-      --app= PROJECT_NAME
-      --f=.
+jobs:
+  runs:
+    using: 'docker'
+    image: 'docker://jprannoyn474/cxflow-gitlab:scaTest'
+    args:
+      - cat ../../application.yml > application.yml
+      - java -jar /app/cx-flow.jar --spring.config.location=./application.yml
+        --scan
+        --cx-team= TEAM
+        --cx-project= PROJECT_NAME
+        --app= PROJECT_NAME
+        --f=.
 
 ## This is a basic workflow to help you get started with Actions
 #
