@@ -1,0 +1,11 @@
+{
+  PROJECT_NAME:"find-sec-bugs-demos",
+  TEAM: "\\CxServer\\SP\\Checkmarx\\JayN",
+  CHECKMARX_URL: "https://sca.scacheckmarx.com",
+  CHECKMARX_USERNAME: "jay.nanduri@checkmarx.com",
+  CHECKMARX_PASSWORD: "aqNGC2?C7UKdfK_D",
+  SCA_PASSWORD: "Cxflow@123",
+  SCA_TENANT: "SCA-Champions",
+  SCA_USERNAME: "cxflow"
+
+}
